@@ -490,7 +490,8 @@
                                                 },
                                                 "delevPercentage": {
                                                     "type": "number",
-                                                    "description": "ADL ranking percentile\n"
+                                                    "description": "ADL ranking percentile\n",
+                                                    "x-go-decimal-string": true
                                                 },
                                                 "openingTimestamp": {
                                                     "type": "integer",
@@ -504,27 +505,33 @@
                                                 },
                                                 "currentQty": {
                                                     "type": "integer",
-                                                    "description": "Current postion quantity\n"
+                                                    "description": "Current postion quantity\n",
+                                                    "x-go-decimal-string": true
                                                 },
                                                 "currentCost": {
                                                     "type": "number",
-                                                    "description": "Current postion value\n"
+                                                    "description": "Current postion value\n",
+                                                    "x-go-decimal-string": true
                                                 },
                                                 "currentComm": {
                                                     "type": "number",
-                                                    "description": "Current commission\n"
+                                                    "description": "Current commission\n",
+                                                    "x-go-decimal-string": true
                                                 },
                                                 "unrealisedCost": {
                                                     "type": "number",
-                                                    "description": "Unrealised value\n"
+                                                    "description": "Unrealised value\n",
+                                                    "x-go-decimal-string": true
                                                 },
                                                 "realisedGrossCost": {
                                                     "type": "number",
-                                                    "description": "Accumulated realised gross profit value\n"
+                                                    "description": "Accumulated realised gross profit value\n",
+                                                    "x-go-decimal-string": true
                                                 },
                                                 "realisedCost": {
                                                     "type": "number",
-                                                    "description": "Current realised position value\n"
+                                                    "description": "Current realised position value\n",
+                                                    "x-go-decimal-string": true
                                                 },
                                                 "isOpen": {
                                                     "type": "boolean",
@@ -532,55 +539,68 @@
                                                 },
                                                 "markPrice": {
                                                     "type": "number",
-                                                    "description": "Mark price\n"
+                                                    "description": "Mark price\n",
+                                                    "x-go-decimal-string": true
                                                 },
                                                 "markValue": {
                                                     "type": "number",
-                                                    "description": "Mark Value\n"
+                                                    "description": "Mark Value\n",
+                                                    "x-go-decimal-string": true
                                                 },
                                                 "posCost": {
                                                     "type": "number",
-                                                    "description": "Position value\n"
+                                                    "description": "Position value\n",
+                                                    "x-go-decimal-string": true
                                                 },
                                                 "posInit": {
                                                     "type": "number",
-                                                    "description": "Inital margin Cross = opening value/cross leverage; isolated = accumulation of initial margin for each transaction\n"
+                                                    "description": "Inital margin Cross = opening value/cross leverage; isolated = accumulation of initial margin for each transaction\n",
+                                                    "x-go-decimal-string": true
                                                 },
                                                 "posMargin": {
                                                     "type": "number",
-                                                    "description": "Bankruptcy cost Cross = mark value * imr; Isolated = position margin (accumulation of initial margin, additional margin, generated funding fees, etc.)\n"
+                                                    "description": "Bankruptcy cost Cross = mark value * imr; Isolated = position margin (accumulation of initial margin, additional margin, generated funding fees, etc.)\n",
+                                                    "x-go-decimal-string": true
                                                 },
                                                 "realisedGrossPnl": {
                                                     "type": "number",
-                                                    "description": "Accumulated realised gross profit value\n"
+                                                    "description": "Accumulated realised gross profit value\n",
+                                                    "x-go-decimal-string": true
                                                 },
                                                 "realisedPnl": {
                                                     "type": "number",
-                                                    "description": "Realised profit and loss\n"
+                                                    "description": "Realised profit and loss\n",
+                                                    "x-go-decimal-string": true
                                                 },
                                                 "unrealisedPnl": {
                                                     "type": "number",
-                                                    "description": "Unrealised profit and loss\n"
+                                                    "description": "Unrealised profit and loss\n",
+                                                    "x-go-decimal-string": true
                                                 },
                                                 "unrealisedPnlPcnt": {
                                                     "type": "number",
-                                                    "description": "Profit-loss ratio of the position\n"
+                                                    "description": "Profit-loss ratio of the position\n",
+                                                    "x-go-decimal-string": true
                                                 },
                                                 "unrealisedRoePcnt": {
                                                     "type": "number",
-                                                    "description": "Rate of return on investment\n"
+                                                    "description": "Rate of return on investment\n",
+                                                    "x-go-decimal-string": true
                                                 },
                                                 "avgEntryPrice": {
                                                     "type": "number",
-                                                    "description": "Average entry price\n"
+                                                    "description": "Average entry price\n",
+                                                    "x-go-decimal-string": true
                                                 },
                                                 "liquidationPrice": {
                                                     "type": "number",
-                                                    "description": "Liquidation price For Cross Margin, you can refer to the liquidationPrice, and the liquidation is based on the risk rate.\n"
+                                                    "description": "Liquidation price For Cross Margin, you can refer to the liquidationPrice, and the liquidation is based on the risk rate.\n",
+                                                    "x-go-decimal-string": true
                                                 },
                                                 "bankruptPrice": {
                                                     "type": "number",
-                                                    "description": "Bankruptcy price For Cross Margin, you can refer to the bankruptPrice, and the liquidation is based on the risk rate.\n"
+                                                    "description": "Bankruptcy price For Cross Margin, you can refer to the bankruptPrice, and the liquidation is based on the risk rate.\n",
+                                                    "x-go-decimal-string": true
                                                 },
                                                 "settleCurrency": {
                                                     "type": "string",
@@ -626,7 +646,8 @@
                                                 },
                                                 "leverage": {
                                                     "type": "number",
-                                                    "description": "Leverage"
+                                                    "description": "Leverage",
+                                                    "x-go-decimal-string": true
                                                 },
                                                 "autoDeposit": {
                                                     "type": "boolean",
@@ -634,51 +655,63 @@
                                                 },
                                                 "maintMarginReq": {
                                                     "type": "number",
-                                                    "description": "Maintenance margin requirement\n"
+                                                    "description": "Maintenance margin requirement\n",
+                                                    "x-go-decimal-string": true
                                                 },
                                                 "riskLimit": {
                                                     "type": "integer",
-                                                    "description": "Risk limit **Only applicable to Isolated Margin**\n"
+                                                    "description": "Risk limit **Only applicable to Isolated Margin**\n",
+                                                    "x-go-decimal-string": true
                                                 },
                                                 "realLeverage": {
                                                     "type": "number",
-                                                    "description": "Leverage of the order **Only applicable to Isolated Margin**\n"
+                                                    "description": "Leverage of the order **Only applicable to Isolated Margin**\n",
+                                                    "x-go-decimal-string": true
                                                 },
                                                 "posCross": {
                                                     "type": "number",
-                                                    "description": "added margin **Only applicable to Isolated Margin**\n"
+                                                    "description": "added margin **Only applicable to Isolated Margin**\n",
+                                                    "x-go-decimal-string": true
                                                 },
                                                 "posCrossMargin": {
                                                     "type": "integer",
-                                                    "description": "Additional margin calls (automatic, manual, adjusted risk limits) **Only applicable to Isolated Margin**\n"
+                                                    "description": "Additional margin calls (automatic, manual, adjusted risk limits) **Only applicable to Isolated Margin**\n",
+                                                    "x-go-decimal-string": true
                                                 },
                                                 "posComm": {
                                                     "type": "number",
-                                                    "description": "Bankruptcy cost **Only applicable to Isolated Margin**\n"
+                                                    "description": "Bankruptcy cost **Only applicable to Isolated Margin**\n",
+                                                    "x-go-decimal-string": true
                                                 },
                                                 "posCommCommon": {
                                                     "type": "number",
-                                                    "description": "Part of bankruptcy cost (positioning, add margin) **Only applicable to Isolated Margin**\n"
+                                                    "description": "Part of bankruptcy cost (positioning, add margin) **Only applicable to Isolated Margin**\n",
+                                                    "x-go-decimal-string": true
                                                 },
                                                 "posLoss": {
                                                     "type": "number",
-                                                    "description": "Funding fees paid out **Only applicable to Isolated Margin**\n"
+                                                    "description": "Funding fees paid out **Only applicable to Isolated Margin**\n",
+                                                    "x-go-decimal-string": true
                                                 },
                                                 "posFunding": {
                                                     "type": "number",
-                                                    "description": "The current remaining unsettled funding fee for the position **Only applicable to Isolated Margin**\n"
+                                                    "description": "The current remaining unsettled funding fee for the position **Only applicable to Isolated Margin**\n",
+                                                    "x-go-decimal-string": true
                                                 },
                                                 "posMaint": {
                                                     "type": "number",
-                                                    "description": "Maintenance margin\n"
+                                                    "description": "Maintenance margin\n",
+                                                    "x-go-decimal-string": true
                                                 },
                                                 "maintMargin": {
                                                     "type": "number",
-                                                    "description": "Position margin **Only applicable to Isolated Margin**\n"
+                                                    "description": "Position margin **Only applicable to Isolated Margin**\n",
+                                                    "x-go-decimal-string": true
                                                 },
                                                 "maintainMargin": {
                                                     "type": "number",
-                                                    "description": "Maintenance margin rate **Only applicable to Isolated Margin**\n"
+                                                    "description": "Maintenance margin rate **Only applicable to Isolated Margin**\n",
+                                                    "x-go-decimal-string": true
                                                 }
                                             },
                                             "required": [
@@ -798,7 +831,8 @@
                                                     },
                                                     "delevPercentage": {
                                                         "type": "number",
-                                                        "description": "ADL ranking percentile\n"
+                                                        "description": "ADL ranking percentile\n",
+                                                        "x-go-decimal-string": true
                                                     },
                                                     "openingTimestamp": {
                                                         "type": "integer",
@@ -812,27 +846,33 @@
                                                     },
                                                     "currentQty": {
                                                         "type": "integer",
-                                                        "description": "Current postion quantity\n"
+                                                        "description": "Current postion quantity\n",
+                                                        "x-go-decimal-string": true
                                                     },
                                                     "currentCost": {
                                                         "type": "number",
-                                                        "description": "Current postion value\n"
+                                                        "description": "Current postion value\n",
+                                                        "x-go-decimal-string": true
                                                     },
                                                     "currentComm": {
                                                         "type": "number",
-                                                        "description": "Current commission\n"
+                                                        "description": "Current commission\n",
+                                                        "x-go-decimal-string": true
                                                     },
                                                     "unrealisedCost": {
                                                         "type": "number",
-                                                        "description": "Unrealised value\n"
+                                                        "description": "Unrealised value\n",
+                                                        "x-go-decimal-string": true
                                                     },
                                                     "realisedGrossCost": {
                                                         "type": "number",
-                                                        "description": "Accumulated realised gross profit value\n"
+                                                        "description": "Accumulated realised gross profit value\n",
+                                                        "x-go-decimal-string": true
                                                     },
                                                     "realisedCost": {
                                                         "type": "number",
-                                                        "description": "Current realised position value\n"
+                                                        "description": "Current realised position value\n",
+                                                        "x-go-decimal-string": true
                                                     },
                                                     "isOpen": {
                                                         "type": "boolean",
@@ -840,55 +880,68 @@
                                                     },
                                                     "markPrice": {
                                                         "type": "number",
-                                                        "description": "Mark price\n"
+                                                        "description": "Mark price\n",
+                                                        "x-go-decimal-string": true
                                                     },
                                                     "markValue": {
                                                         "type": "number",
-                                                        "description": "Mark Value\n"
+                                                        "description": "Mark Value\n",
+                                                        "x-go-decimal-string": true
                                                     },
                                                     "posCost": {
                                                         "type": "number",
-                                                        "description": "Position value\n"
+                                                        "description": "Position value\n",
+                                                        "x-go-decimal-string": true
                                                     },
                                                     "posInit": {
                                                         "type": "number",
-                                                        "description": "Inital margin Cross = opening value/cross leverage; isolated = accumulation of initial margin for each transaction\n"
+                                                        "description": "Inital margin Cross = opening value/cross leverage; isolated = accumulation of initial margin for each transaction\n",
+                                                        "x-go-decimal-string": true
                                                     },
                                                     "posMargin": {
                                                         "type": "number",
-                                                        "description": "Bankruptcy cost Cross = mark value * imr; Isolated = position margin (accumulation of initial margin, additional margin, generated funding fees, etc.)\n"
+                                                        "description": "Bankruptcy cost Cross = mark value * imr; Isolated = position margin (accumulation of initial margin, additional margin, generated funding fees, etc.)\n",
+                                                        "x-go-decimal-string": true
                                                     },
                                                     "realisedGrossPnl": {
                                                         "type": "number",
-                                                        "description": "Accumulated realised gross profit value\n"
+                                                        "description": "Accumulated realised gross profit value\n",
+                                                        "x-go-decimal-string": true
                                                     },
                                                     "realisedPnl": {
                                                         "type": "number",
-                                                        "description": "Realised profit and loss\n"
+                                                        "description": "Realised profit and loss\n",
+                                                        "x-go-decimal-string": true
                                                     },
                                                     "unrealisedPnl": {
                                                         "type": "number",
-                                                        "description": "Unrealised profit and loss\n"
+                                                        "description": "Unrealised profit and loss\n",
+                                                        "x-go-decimal-string": true
                                                     },
                                                     "unrealisedPnlPcnt": {
                                                         "type": "number",
-                                                        "description": "Profit-loss ratio of the position\n"
+                                                        "description": "Profit-loss ratio of the position\n",
+                                                        "x-go-decimal-string": true
                                                     },
                                                     "unrealisedRoePcnt": {
                                                         "type": "number",
-                                                        "description": "Rate of return on investment\n"
+                                                        "description": "Rate of return on investment\n",
+                                                        "x-go-decimal-string": true
                                                     },
                                                     "avgEntryPrice": {
                                                         "type": "number",
-                                                        "description": "Average entry price\n"
+                                                        "description": "Average entry price\n",
+                                                        "x-go-decimal-string": true
                                                     },
                                                     "liquidationPrice": {
                                                         "type": "number",
-                                                        "description": "Liquidation price For Cross Margin, you can refer to the liquidationPrice, and the liquidation is based on the risk rate.\n"
+                                                        "description": "Liquidation price For Cross Margin, you can refer to the liquidationPrice, and the liquidation is based on the risk rate.\n",
+                                                        "x-go-decimal-string": true
                                                     },
                                                     "bankruptPrice": {
                                                         "type": "number",
-                                                        "description": "Bankruptcy price For Cross Margin, you can refer to the bankruptPrice, and the liquidation is based on the risk rate.\n"
+                                                        "description": "Bankruptcy price For Cross Margin, you can refer to the bankruptPrice, and the liquidation is based on the risk rate.\n",
+                                                        "x-go-decimal-string": true
                                                     },
                                                     "settleCurrency": {
                                                         "type": "string",
@@ -934,7 +987,8 @@
                                                     },
                                                     "leverage": {
                                                         "type": "number",
-                                                        "description": "Leverage"
+                                                        "description": "Leverage",
+                                                        "x-go-decimal-string": true
                                                     },
                                                     "autoDeposit": {
                                                         "type": "boolean",
@@ -942,51 +996,63 @@
                                                     },
                                                     "maintMarginReq": {
                                                         "type": "number",
-                                                        "description": "Maintenance margin requirement\n"
+                                                        "description": "Maintenance margin requirement\n",
+                                                        "x-go-decimal-string": true
                                                     },
                                                     "riskLimit": {
                                                         "type": "number",
-                                                        "description": "Risk limit **Only applicable to Isolated Margin**\n"
+                                                        "description": "Risk limit **Only applicable to Isolated Margin**\n",
+                                                        "x-go-decimal-string": true
                                                     },
                                                     "realLeverage": {
                                                         "type": "number",
-                                                        "description": "Leverage of the order **Only applicable to Isolated Margin**\n"
+                                                        "description": "Leverage of the order **Only applicable to Isolated Margin**\n",
+                                                        "x-go-decimal-string": true
                                                     },
                                                     "posCross": {
                                                         "type": "number",
-                                                        "description": "added margin **Only applicable to Isolated Margin**\n"
+                                                        "description": "added margin **Only applicable to Isolated Margin**\n",
+                                                        "x-go-decimal-string": true
                                                     },
                                                     "posCrossMargin": {
                                                         "type": "number",
-                                                        "description": "Additional margin calls (automatic, manual, adjusted risk limits) **Only applicable to Isolated Margin**\n"
+                                                        "description": "Additional margin calls (automatic, manual, adjusted risk limits) **Only applicable to Isolated Margin**\n",
+                                                        "x-go-decimal-string": true
                                                     },
                                                     "posComm": {
                                                         "type": "number",
-                                                        "description": "Bankruptcy cost **Only applicable to Isolated Margin**\n"
+                                                        "description": "Bankruptcy cost **Only applicable to Isolated Margin**\n",
+                                                        "x-go-decimal-string": true
                                                     },
                                                     "posCommCommon": {
                                                         "type": "number",
-                                                        "description": "Part of bankruptcy cost (positioning, add margin) **Only applicable to Isolated Margin**\n"
+                                                        "description": "Part of bankruptcy cost (positioning, add margin) **Only applicable to Isolated Margin**\n",
+                                                        "x-go-decimal-string": true
                                                     },
                                                     "posLoss": {
                                                         "type": "number",
-                                                        "description": "Funding fees paid out **Only applicable to Isolated Margin**\n"
+                                                        "description": "Funding fees paid out **Only applicable to Isolated Margin**\n",
+                                                        "x-go-decimal-string": true
                                                     },
                                                     "posFunding": {
                                                         "type": "number",
-                                                        "description": "The current remaining unsettled funding fee for the position **Only applicable to Isolated Margin**\n"
+                                                        "description": "The current remaining unsettled funding fee for the position **Only applicable to Isolated Margin**\n",
+                                                        "x-go-decimal-string": true
                                                     },
                                                     "posMaint": {
                                                         "type": "number",
-                                                        "description": "Maintenance margin"
+                                                        "description": "Maintenance margin",
+                                                        "x-go-decimal-string": true
                                                     },
                                                     "maintMargin": {
                                                         "type": "number",
-                                                        "description": "Position margin **Only applicable to Isolated Margin**\n"
+                                                        "description": "Position margin **Only applicable to Isolated Margin**\n",
+                                                        "x-go-decimal-string": true
                                                     },
                                                     "maintainMargin": {
                                                         "type": "number",
-                                                        "description": "Maintenance margin rate **Only applicable to Isolated Margin**\n"
+                                                        "description": "Maintenance margin rate **Only applicable to Isolated Margin**\n",
+                                                        "x-go-decimal-string": true
                                                     }
                                                 },
                                                 "required": [

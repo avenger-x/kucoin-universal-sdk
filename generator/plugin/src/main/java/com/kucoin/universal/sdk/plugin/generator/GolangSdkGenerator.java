@@ -34,6 +34,8 @@ import static org.openapitools.codegen.utils.StringUtils.underscore;
  */
 @Slf4j
 public class GolangSdkGenerator extends AbstractGoCodegen implements NameService {
+    private static final String DECIMAL_STRING_EXTENSION = "x-go-decimal-string";
+
     private SchemaService schemaService;
     private OperationService operationService;
     private ModeSwitch modeSwitch;
@@ -147,6 +149,10 @@ public class GolangSdkGenerator extends AbstractGoCodegen implements NameService
     @Override
     public CodegenProperty fromProperty(String name, Schema p, boolean required) {
         CodegenProperty prop = super.fromProperty(name, p, required);
+        if (Boolean.TRUE.equals(prop.vendorExtensions.get(DECIMAL_STRING_EXTENSION))) {
+            prop.dataType = "types.DecimalString";
+            prop.datatypeWithEnum = prop.dataType;
+        }
         String cc = camelize(prop.name, LOWERCASE_FIRST_LETTER);
         if (isReservedWord(cc)) {
             cc = escapeReservedWord(cc);
@@ -326,6 +332,10 @@ public class GolangSdkGenerator extends AbstractGoCodegen implements NameService
             for (ModelMap model : models) {
                 CodegenModel codegenModel = model.getModel();
                 if (codegenModel != null) {
+                    if (codegenModel.vars.stream().anyMatch(
+                            prop -> Boolean.TRUE.equals(prop.vendorExtensions.get(DECIMAL_STRING_EXTENSION)))) {
+                        codegenModel.vendorExtensions.put("x-go-decimal-string-fields", true);
+                    }
                     Meta meta = schemaService.getMeta(codegenModel.getName());
                     if (meta != null) {
                         objs.put(CodegenConstants.PACKAGE_NAME, formatPackage(subService));

@@ -39,7 +39,7 @@ type GetSymbolResp struct {
 	// Index price of tick size
 	IndexPriceTickSize float64 `json:"indexPriceTickSize,omitempty"`
 	// The basic unit of the contract API is lots. For the number of coins in each lot, please refer to the param multiplier. For example, for XBTUSDTM, multiplier=0.001, which corresponds to the value of each XBTUSDTM contract being 0.001 BTC. There is also a special case. All coin-swap contracts, such as each XBTUSDM contract, correspond to 1 USD.
-	Multiplier float64 `json:"multiplier,omitempty"`
+	Multiplier types.DecimalString `json:"multiplier,omitempty"`
 	// Initial margin requirement
 	InitialMargin float64 `json:"initialMargin,omitempty"`
 	// Maintenance margin requirement
@@ -137,7 +137,7 @@ type GetSymbolResp struct {
 
 // NewGetSymbolResp instantiates a new GetSymbolResp object
 // This constructor will assign default values to properties that have it defined
-func NewGetSymbolResp(symbol string, rootSymbol string, Type_ string, firstOpenDate int64, expireDate int64, settleDate int64, baseCurrency string, quoteCurrency string, settleCurrency string, maxOrderQty int32, maxPrice float64, lotSize int32, tickSize float64, indexPriceTickSize float64, multiplier float64, initialMargin float64, maintainMargin float64, maxRiskLimit int32, minRiskLimit int32, riskStep int32, makerFeeRate float64, takerFeeRate float64, takerFixFee float64, makerFixFee float64, settlementFee float64, isDeleverage bool, isQuanto bool, isInverse bool, markMethod string, fairMethod string, fundingBaseSymbol string, fundingQuoteSymbol string, fundingRateSymbol string, indexSymbol string, settlementSymbol string, status string, fundingFeeRate float64, predictedFundingFeeRate float64, fundingRateGranularity int32, openInterest string, turnoverOf24h float64, volumeOf24h float64, markPrice float64, indexPrice float64, lastTradePrice float64, nextFundingRateTime int32, maxLeverage int32, sourceExchanges []string, premiumsSymbol1M string, premiumsSymbol8H string, fundingBaseSymbol1M string, fundingQuoteSymbol1M string, lowPrice float64, highPrice float64, priceChgPct float64, priceChg float64, k float64, m float64, f float64, mmrLimit float64, mmrLevConstant float64, supportCross bool, buyLimit float64, sellLimit float64) *GetSymbolResp {
+func NewGetSymbolResp(symbol string, rootSymbol string, Type_ string, firstOpenDate int64, expireDate int64, settleDate int64, baseCurrency string, quoteCurrency string, settleCurrency string, maxOrderQty int32, maxPrice float64, lotSize int32, tickSize float64, indexPriceTickSize float64, multiplier types.DecimalString, initialMargin float64, maintainMargin float64, maxRiskLimit int32, minRiskLimit int32, riskStep int32, makerFeeRate float64, takerFeeRate float64, takerFixFee float64, makerFixFee float64, settlementFee float64, isDeleverage bool, isQuanto bool, isInverse bool, markMethod string, fairMethod string, fundingBaseSymbol string, fundingQuoteSymbol string, fundingRateSymbol string, indexSymbol string, settlementSymbol string, status string, fundingFeeRate float64, predictedFundingFeeRate float64, fundingRateGranularity int32, openInterest string, turnoverOf24h float64, volumeOf24h float64, markPrice float64, indexPrice float64, lastTradePrice float64, nextFundingRateTime int32, maxLeverage int32, sourceExchanges []string, premiumsSymbol1M string, premiumsSymbol8H string, fundingBaseSymbol1M string, fundingQuoteSymbol1M string, lowPrice float64, highPrice float64, priceChgPct float64, priceChg float64, k float64, m float64, f float64, mmrLimit float64, mmrLevConstant float64, supportCross bool, buyLimit float64, sellLimit float64) *GetSymbolResp {
 	this := GetSymbolResp{}
 	this.Symbol = symbol
 	this.RootSymbol = rootSymbol
@@ -229,7 +229,7 @@ func (o *GetSymbolResp) ToMap() map[string]interface{} {
 	toSerialize["lotSize"] = o.LotSize
 	toSerialize["tickSize"] = o.TickSize
 	toSerialize["indexPriceTickSize"] = o.IndexPriceTickSize
-	toSerialize["multiplier"] = o.Multiplier
+	toSerialize["multiplier"] = string(o.Multiplier)
 	toSerialize["initialMargin"] = o.InitialMargin
 	toSerialize["maintainMargin"] = o.MaintainMargin
 	toSerialize["maxRiskLimit"] = o.MaxRiskLimit

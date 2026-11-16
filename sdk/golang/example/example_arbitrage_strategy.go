@@ -16,6 +16,7 @@ import (
 	"github.com/Kucoin/kucoin-universal-sdk/sdk/golang/pkg/types"
 	"github.com/google/uuid"
 	"math"
+	"math/big"
 	"os"
 	"strconv"
 	"time"
@@ -186,8 +187,27 @@ func fundingRateArbitrageStrategy(futuresService service.FuturesService, spotSer
 		fmt.Printf("Error fetching futures symbol multiplier: %v\n", err)
 		panic(err)
 	}
-	futuresMultiplier := float64(futuresSymbolResp.Multiplier)
-	futuresAmount := int(math.Ceil(amount / futuresMultiplier))
+	multiplier, ok := new(big.Rat).SetString(string(futuresSymbolResp.Multiplier))
+	if !ok || multiplier.Sign() <= 0 {
+		fmt.Printf("Invalid futures multiplier: %q\n", futuresSymbolResp.Multiplier)
+		return
+	}
+	baseAmount, ok := new(big.Rat).SetString(strconv.FormatFloat(amount, 'g', -1, 64))
+	if !ok || baseAmount.Sign() <= 0 {
+		fmt.Printf("Invalid base currency amount: %v\n", amount)
+		return
+	}
+	lots := new(big.Rat).Quo(baseAmount, multiplier)
+	var contracts, remainder big.Int
+	contracts.QuoRem(lots.Num(), lots.Denom(), &remainder)
+	if remainder.Sign() > 0 {
+		contracts.Add(&contracts, big.NewInt(1))
+	}
+	if !contracts.IsInt64() || contracts.Int64() > math.MaxInt32 {
+		fmt.Printf("Futures order size exceeds the API range: %s lots\n", &contracts)
+		return
+	}
+	futuresAmount := int(contracts.Int64())
 
 	// Step 4: Execute arbitrage based on funding rate direction
 	if fundingRate > 0 {

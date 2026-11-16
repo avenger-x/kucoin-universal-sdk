@@ -5,6 +5,22 @@ import (
 	"fmt"
 )
 
+// DecimalString preserves the text of a decimal value, including its sign,
+// trailing zeros, and any exponent. It accepts JSON numbers and strings with
+// JSON number syntax, and marshals as a JSON string.
+type DecimalString string
+
+func (d *DecimalString) UnmarshalJSON(data []byte) error {
+	// json.Number validates the number without converting it to a float.
+	// Start with the existing value so null leaves a non-pointer field unchanged.
+	number := json.Number(*d)
+	if err := json.Unmarshal(data, &number); err != nil {
+		return err
+	}
+	*d = DecimalString(number)
+	return nil
+}
+
 // RestRateLimit represents the rate limiting information for a REST API.
 type RestRateLimit struct {
 	Limit     int64 // Total resource pool quota

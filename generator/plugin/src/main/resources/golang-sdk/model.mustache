@@ -9,6 +9,11 @@ import (
     "github.com/Kucoin/kucoin-universal-sdk/sdk/golang/pkg/types"
 )
 {{/vendorExtensions.x-response-model}}
+{{^vendorExtensions.x-response-model}}
+{{#vendorExtensions.x-go-decimal-string-fields}}
+import "github.com/Kucoin/kucoin-universal-sdk/sdk/golang/pkg/types"
+{{/vendorExtensions.x-go-decimal-string-fields}}
+{{/vendorExtensions.x-response-model}}
 {{#vendorExtensions.x-request-model}}
 {{#vendorExtensions.x-request-raw-array}}import "encoding/json"{{/vendorExtensions.x-request-raw-array}}
 {{/vendorExtensions.x-request-model}}
@@ -95,7 +100,26 @@ func New{{classname}}WithDefaults() *{{classname}} {
 func (o *{{classname}}) ToMap() map[string]interface{} {
 toSerialize := map[string]interface{}{}
 {{#vars}}
+{{#vendorExtensions.x-go-decimal-string}}
+    {{#required}}
+    toSerialize["{{{baseName}}}"] = string(o.{{name}})
+    {{/required}}
+    {{^required}}
+    {{#isNullable}}
+    toSerialize["{{{baseName}}}"] = string(o.{{name}})
+    {{/isNullable}}
+    {{^isNullable}}
+    if o.{{name}} != nil {
+        toSerialize["{{{baseName}}}"] = string(*o.{{name}})
+    } else {
+        toSerialize["{{{baseName}}}"] = nil
+    }
+    {{/isNullable}}
+    {{/required}}
+{{/vendorExtensions.x-go-decimal-string}}
+{{^vendorExtensions.x-go-decimal-string}}
     toSerialize["{{{baseName}}}"] = o.{{name}}
+{{/vendorExtensions.x-go-decimal-string}}
 {{/vars}}
 return toSerialize
 }

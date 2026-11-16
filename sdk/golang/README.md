@@ -108,6 +108,17 @@ This section provides specific considerations and recommendations for using the 
 - **Public API Access**:
   - For public endpoints, API keys are not required, simplifying integration for non-authenticated use cases.
 
+#### Futures position and multiplier precision
+
+`GetPositionList` and `GetPositionDetails` expose `CurrentQty` and financial fields such as
+`AvgEntryPrice`, `UnrealisedPnl`, and `PosMargin` as `types.DecimalString`. `GetSymbol` uses
+the same type for `Multiplier`. The SDK accepts JSON numbers and numeric strings, preserves
+the original decimal text, and emits these values as JSON strings when marshaling.
+
+Use `string(value)` to pass a value to a decimal library. Optional decimal fields are
+pointers and may be `nil`. `CurrentQty` is the signed quantity in contracts as returned
+by the API. The SDK leaves any conversion to base currency to the application.
+
 ---
 
 ### WebSocket API Notes

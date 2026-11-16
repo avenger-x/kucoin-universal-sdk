@@ -2,6 +2,8 @@
 
 package positions
 
+import "github.com/Kucoin/kucoin-universal-sdk/sdk/golang/pkg/types"
+
 // GetPositionListData struct for GetPositionListData
 type GetPositionListData struct {
 	// Position ID
@@ -11,51 +13,51 @@ type GetPositionListData struct {
 	// Whether it is cross margin.
 	CrossMode bool `json:"crossMode,omitempty"`
 	// ADL ranking percentile
-	DelevPercentage float64 `json:"delevPercentage,omitempty"`
+	DelevPercentage types.DecimalString `json:"delevPercentage,omitempty"`
 	// First opening time
 	OpeningTimestamp int64 `json:"openingTimestamp,omitempty"`
 	// Current timestamp
 	CurrentTimestamp int64 `json:"currentTimestamp,omitempty"`
 	// Current postion quantity
-	CurrentQty int32 `json:"currentQty,omitempty"`
+	CurrentQty types.DecimalString `json:"currentQty,omitempty"`
 	// Current postion value
-	CurrentCost float64 `json:"currentCost,omitempty"`
+	CurrentCost types.DecimalString `json:"currentCost,omitempty"`
 	// Current commission
-	CurrentComm float64 `json:"currentComm,omitempty"`
+	CurrentComm types.DecimalString `json:"currentComm,omitempty"`
 	// Unrealised value
-	UnrealisedCost float64 `json:"unrealisedCost,omitempty"`
+	UnrealisedCost types.DecimalString `json:"unrealisedCost,omitempty"`
 	// Accumulated realised gross profit value
-	RealisedGrossCost float64 `json:"realisedGrossCost,omitempty"`
+	RealisedGrossCost types.DecimalString `json:"realisedGrossCost,omitempty"`
 	// Current realised position value
-	RealisedCost float64 `json:"realisedCost,omitempty"`
+	RealisedCost types.DecimalString `json:"realisedCost,omitempty"`
 	// Opened position or not
 	IsOpen bool `json:"isOpen,omitempty"`
 	// Mark price
-	MarkPrice float64 `json:"markPrice,omitempty"`
+	MarkPrice types.DecimalString `json:"markPrice,omitempty"`
 	// Mark Value
-	MarkValue float64 `json:"markValue,omitempty"`
+	MarkValue types.DecimalString `json:"markValue,omitempty"`
 	// Position value
-	PosCost float64 `json:"posCost,omitempty"`
+	PosCost types.DecimalString `json:"posCost,omitempty"`
 	// Inital margin Cross = opening value/cross leverage; isolated = accumulation of initial margin for each transaction
-	PosInit float64 `json:"posInit,omitempty"`
+	PosInit types.DecimalString `json:"posInit,omitempty"`
 	// Bankruptcy cost Cross = mark value * imr; Isolated = position margin (accumulation of initial margin, additional margin, generated funding fees, etc.)
-	PosMargin float64 `json:"posMargin,omitempty"`
+	PosMargin types.DecimalString `json:"posMargin,omitempty"`
 	// Accumulated realised gross profit value
-	RealisedGrossPnl float64 `json:"realisedGrossPnl,omitempty"`
+	RealisedGrossPnl types.DecimalString `json:"realisedGrossPnl,omitempty"`
 	// Realised profit and loss
-	RealisedPnl float64 `json:"realisedPnl,omitempty"`
+	RealisedPnl types.DecimalString `json:"realisedPnl,omitempty"`
 	// Unrealised profit and loss
-	UnrealisedPnl float64 `json:"unrealisedPnl,omitempty"`
+	UnrealisedPnl types.DecimalString `json:"unrealisedPnl,omitempty"`
 	// Profit-loss ratio of the position
-	UnrealisedPnlPcnt float64 `json:"unrealisedPnlPcnt,omitempty"`
+	UnrealisedPnlPcnt types.DecimalString `json:"unrealisedPnlPcnt,omitempty"`
 	// Rate of return on investment
-	UnrealisedRoePcnt float64 `json:"unrealisedRoePcnt,omitempty"`
+	UnrealisedRoePcnt types.DecimalString `json:"unrealisedRoePcnt,omitempty"`
 	// Average entry price
-	AvgEntryPrice float64 `json:"avgEntryPrice,omitempty"`
+	AvgEntryPrice types.DecimalString `json:"avgEntryPrice,omitempty"`
 	// Liquidation price For Cross Margin, you can refer to the liquidationPrice, and the liquidation is based on the risk rate.
-	LiquidationPrice float64 `json:"liquidationPrice,omitempty"`
+	LiquidationPrice types.DecimalString `json:"liquidationPrice,omitempty"`
 	// Bankruptcy price For Cross Margin, you can refer to the bankruptPrice, and the liquidation is based on the risk rate.
-	BankruptPrice float64 `json:"bankruptPrice,omitempty"`
+	BankruptPrice types.DecimalString `json:"bankruptPrice,omitempty"`
 	// Currency used to clear and settle the trades
 	SettleCurrency string `json:"settleCurrency,omitempty"`
 	// Reverse contract or not
@@ -65,38 +67,38 @@ type GetPositionListData struct {
 	// Position Side
 	PositionSide string `json:"positionSide,omitempty"`
 	// Leverage
-	Leverage float64 `json:"leverage,omitempty"`
+	Leverage types.DecimalString `json:"leverage,omitempty"`
 	// Auto deposit margin or not **Only applicable to Isolated Margin**
 	AutoDeposit *bool `json:"autoDeposit,omitempty"`
 	// Maintenance margin requirement
-	MaintMarginReq *float64 `json:"maintMarginReq,omitempty"`
+	MaintMarginReq *types.DecimalString `json:"maintMarginReq,omitempty"`
 	// Risk limit **Only applicable to Isolated Margin**
-	RiskLimit *float64 `json:"riskLimit,omitempty"`
+	RiskLimit *types.DecimalString `json:"riskLimit,omitempty"`
 	// Leverage of the order **Only applicable to Isolated Margin**
-	RealLeverage *float64 `json:"realLeverage,omitempty"`
+	RealLeverage *types.DecimalString `json:"realLeverage,omitempty"`
 	// added margin **Only applicable to Isolated Margin**
-	PosCross *float64 `json:"posCross,omitempty"`
+	PosCross *types.DecimalString `json:"posCross,omitempty"`
 	// Additional margin calls (automatic, manual, adjusted risk limits) **Only applicable to Isolated Margin**
-	PosCrossMargin *float64 `json:"posCrossMargin,omitempty"`
+	PosCrossMargin *types.DecimalString `json:"posCrossMargin,omitempty"`
 	// Bankruptcy cost **Only applicable to Isolated Margin**
-	PosComm *float64 `json:"posComm,omitempty"`
+	PosComm *types.DecimalString `json:"posComm,omitempty"`
 	// Part of bankruptcy cost (positioning, add margin) **Only applicable to Isolated Margin**
-	PosCommCommon *float64 `json:"posCommCommon,omitempty"`
+	PosCommCommon *types.DecimalString `json:"posCommCommon,omitempty"`
 	// Funding fees paid out **Only applicable to Isolated Margin**
-	PosLoss *float64 `json:"posLoss,omitempty"`
+	PosLoss *types.DecimalString `json:"posLoss,omitempty"`
 	// The current remaining unsettled funding fee for the position **Only applicable to Isolated Margin**
-	PosFunding *float64 `json:"posFunding,omitempty"`
+	PosFunding *types.DecimalString `json:"posFunding,omitempty"`
 	// Maintenance margin
-	PosMaint *float64 `json:"posMaint,omitempty"`
+	PosMaint *types.DecimalString `json:"posMaint,omitempty"`
 	// Position margin **Only applicable to Isolated Margin**
-	MaintMargin *float64 `json:"maintMargin,omitempty"`
+	MaintMargin *types.DecimalString `json:"maintMargin,omitempty"`
 	// Maintenance margin rate **Only applicable to Isolated Margin**
-	MaintainMargin *float64 `json:"maintainMargin,omitempty"`
+	MaintainMargin *types.DecimalString `json:"maintainMargin,omitempty"`
 }
 
 // NewGetPositionListData instantiates a new GetPositionListData object
 // This constructor will assign default values to properties that have it defined
-func NewGetPositionListData(id string, symbol string, crossMode bool, delevPercentage float64, openingTimestamp int64, currentTimestamp int64, currentQty int32, currentCost float64, currentComm float64, unrealisedCost float64, realisedGrossCost float64, realisedCost float64, isOpen bool, markPrice float64, markValue float64, posCost float64, posInit float64, posMargin float64, realisedGrossPnl float64, realisedPnl float64, unrealisedPnl float64, unrealisedPnlPcnt float64, unrealisedRoePcnt float64, avgEntryPrice float64, liquidationPrice float64, bankruptPrice float64, settleCurrency string, isInverse bool, marginMode string, positionSide string, leverage float64) *GetPositionListData {
+func NewGetPositionListData(id string, symbol string, crossMode bool, delevPercentage types.DecimalString, openingTimestamp int64, currentTimestamp int64, currentQty types.DecimalString, currentCost types.DecimalString, currentComm types.DecimalString, unrealisedCost types.DecimalString, realisedGrossCost types.DecimalString, realisedCost types.DecimalString, isOpen bool, markPrice types.DecimalString, markValue types.DecimalString, posCost types.DecimalString, posInit types.DecimalString, posMargin types.DecimalString, realisedGrossPnl types.DecimalString, realisedPnl types.DecimalString, unrealisedPnl types.DecimalString, unrealisedPnlPcnt types.DecimalString, unrealisedRoePcnt types.DecimalString, avgEntryPrice types.DecimalString, liquidationPrice types.DecimalString, bankruptPrice types.DecimalString, settleCurrency string, isInverse bool, marginMode string, positionSide string, leverage types.DecimalString) *GetPositionListData {
 	this := GetPositionListData{}
 	this.Id = id
 	this.Symbol = symbol
@@ -144,46 +146,94 @@ func (o *GetPositionListData) ToMap() map[string]interface{} {
 	toSerialize["id"] = o.Id
 	toSerialize["symbol"] = o.Symbol
 	toSerialize["crossMode"] = o.CrossMode
-	toSerialize["delevPercentage"] = o.DelevPercentage
+	toSerialize["delevPercentage"] = string(o.DelevPercentage)
 	toSerialize["openingTimestamp"] = o.OpeningTimestamp
 	toSerialize["currentTimestamp"] = o.CurrentTimestamp
-	toSerialize["currentQty"] = o.CurrentQty
-	toSerialize["currentCost"] = o.CurrentCost
-	toSerialize["currentComm"] = o.CurrentComm
-	toSerialize["unrealisedCost"] = o.UnrealisedCost
-	toSerialize["realisedGrossCost"] = o.RealisedGrossCost
-	toSerialize["realisedCost"] = o.RealisedCost
+	toSerialize["currentQty"] = string(o.CurrentQty)
+	toSerialize["currentCost"] = string(o.CurrentCost)
+	toSerialize["currentComm"] = string(o.CurrentComm)
+	toSerialize["unrealisedCost"] = string(o.UnrealisedCost)
+	toSerialize["realisedGrossCost"] = string(o.RealisedGrossCost)
+	toSerialize["realisedCost"] = string(o.RealisedCost)
 	toSerialize["isOpen"] = o.IsOpen
-	toSerialize["markPrice"] = o.MarkPrice
-	toSerialize["markValue"] = o.MarkValue
-	toSerialize["posCost"] = o.PosCost
-	toSerialize["posInit"] = o.PosInit
-	toSerialize["posMargin"] = o.PosMargin
-	toSerialize["realisedGrossPnl"] = o.RealisedGrossPnl
-	toSerialize["realisedPnl"] = o.RealisedPnl
-	toSerialize["unrealisedPnl"] = o.UnrealisedPnl
-	toSerialize["unrealisedPnlPcnt"] = o.UnrealisedPnlPcnt
-	toSerialize["unrealisedRoePcnt"] = o.UnrealisedRoePcnt
-	toSerialize["avgEntryPrice"] = o.AvgEntryPrice
-	toSerialize["liquidationPrice"] = o.LiquidationPrice
-	toSerialize["bankruptPrice"] = o.BankruptPrice
+	toSerialize["markPrice"] = string(o.MarkPrice)
+	toSerialize["markValue"] = string(o.MarkValue)
+	toSerialize["posCost"] = string(o.PosCost)
+	toSerialize["posInit"] = string(o.PosInit)
+	toSerialize["posMargin"] = string(o.PosMargin)
+	toSerialize["realisedGrossPnl"] = string(o.RealisedGrossPnl)
+	toSerialize["realisedPnl"] = string(o.RealisedPnl)
+	toSerialize["unrealisedPnl"] = string(o.UnrealisedPnl)
+	toSerialize["unrealisedPnlPcnt"] = string(o.UnrealisedPnlPcnt)
+	toSerialize["unrealisedRoePcnt"] = string(o.UnrealisedRoePcnt)
+	toSerialize["avgEntryPrice"] = string(o.AvgEntryPrice)
+	toSerialize["liquidationPrice"] = string(o.LiquidationPrice)
+	toSerialize["bankruptPrice"] = string(o.BankruptPrice)
 	toSerialize["settleCurrency"] = o.SettleCurrency
 	toSerialize["isInverse"] = o.IsInverse
 	toSerialize["marginMode"] = o.MarginMode
 	toSerialize["positionSide"] = o.PositionSide
-	toSerialize["leverage"] = o.Leverage
+	toSerialize["leverage"] = string(o.Leverage)
 	toSerialize["autoDeposit"] = o.AutoDeposit
-	toSerialize["maintMarginReq"] = o.MaintMarginReq
-	toSerialize["riskLimit"] = o.RiskLimit
-	toSerialize["realLeverage"] = o.RealLeverage
-	toSerialize["posCross"] = o.PosCross
-	toSerialize["posCrossMargin"] = o.PosCrossMargin
-	toSerialize["posComm"] = o.PosComm
-	toSerialize["posCommCommon"] = o.PosCommCommon
-	toSerialize["posLoss"] = o.PosLoss
-	toSerialize["posFunding"] = o.PosFunding
-	toSerialize["posMaint"] = o.PosMaint
-	toSerialize["maintMargin"] = o.MaintMargin
-	toSerialize["maintainMargin"] = o.MaintainMargin
+	if o.MaintMarginReq != nil {
+		toSerialize["maintMarginReq"] = string(*o.MaintMarginReq)
+	} else {
+		toSerialize["maintMarginReq"] = nil
+	}
+	if o.RiskLimit != nil {
+		toSerialize["riskLimit"] = string(*o.RiskLimit)
+	} else {
+		toSerialize["riskLimit"] = nil
+	}
+	if o.RealLeverage != nil {
+		toSerialize["realLeverage"] = string(*o.RealLeverage)
+	} else {
+		toSerialize["realLeverage"] = nil
+	}
+	if o.PosCross != nil {
+		toSerialize["posCross"] = string(*o.PosCross)
+	} else {
+		toSerialize["posCross"] = nil
+	}
+	if o.PosCrossMargin != nil {
+		toSerialize["posCrossMargin"] = string(*o.PosCrossMargin)
+	} else {
+		toSerialize["posCrossMargin"] = nil
+	}
+	if o.PosComm != nil {
+		toSerialize["posComm"] = string(*o.PosComm)
+	} else {
+		toSerialize["posComm"] = nil
+	}
+	if o.PosCommCommon != nil {
+		toSerialize["posCommCommon"] = string(*o.PosCommCommon)
+	} else {
+		toSerialize["posCommCommon"] = nil
+	}
+	if o.PosLoss != nil {
+		toSerialize["posLoss"] = string(*o.PosLoss)
+	} else {
+		toSerialize["posLoss"] = nil
+	}
+	if o.PosFunding != nil {
+		toSerialize["posFunding"] = string(*o.PosFunding)
+	} else {
+		toSerialize["posFunding"] = nil
+	}
+	if o.PosMaint != nil {
+		toSerialize["posMaint"] = string(*o.PosMaint)
+	} else {
+		toSerialize["posMaint"] = nil
+	}
+	if o.MaintMargin != nil {
+		toSerialize["maintMargin"] = string(*o.MaintMargin)
+	} else {
+		toSerialize["maintMargin"] = nil
+	}
+	if o.MaintainMargin != nil {
+		toSerialize["maintainMargin"] = string(*o.MaintainMargin)
+	} else {
+		toSerialize["maintainMargin"] = nil
+	}
 	return toSerialize
 }

@@ -126,7 +126,8 @@
                                                 },
                                                 "multiplier": {
                                                     "type": "number",
-                                                    "description": "The basic unit of the contract API is lots. For the number of coins in each lot, please refer to the param multiplier. For example, for XBTUSDTM, multiplier=0.001, which corresponds to the value of each XBTUSDTM contract being 0.001 BTC. There is also a special case. All coin-swap contracts, such as each XBTUSDM contract, correspond to 1 USD."
+                                                    "description": "The basic unit of the contract API is lots. For the number of coins in each lot, please refer to the param multiplier. For example, for XBTUSDTM, multiplier=0.001, which corresponds to the value of each XBTUSDTM contract being 0.001 BTC. There is also a special case. All coin-swap contracts, such as each XBTUSDM contract, correspond to 1 USD.",
+                                                    "x-go-decimal-string": true
                                                 },
                                                 "initialMargin": {
                                                     "type": "number",
